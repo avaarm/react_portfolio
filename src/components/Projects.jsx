@@ -29,7 +29,7 @@ export default function Projects() {
           </h3>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, i) => {
             const colors = colorMap[project.color] || colorMap.accent
             return (
@@ -38,7 +38,7 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative p-5 rounded-2xl border border-border-dim bg-surface-card backdrop-blur-sm hover:border-border-bright hover:bg-surface-hover transition-all duration-300"
+                className="group relative min-w-0 p-5 rounded-2xl border border-border-dim bg-surface-card backdrop-blur-sm hover:border-border-bright hover:bg-surface-hover transition-all duration-300"
               >
                 <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${colors.bg} ${colors.border} border mb-4`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${colors.text} opacity-80`} style={{ backgroundColor: 'currentColor' }} />
@@ -53,6 +53,20 @@ export default function Projects() {
                   {project.description}
                 </p>
 
+                {project.screenshots && (
+                  <div className="flex gap-2 overflow-x-auto snap-x pb-2 mb-4">
+                    {project.screenshots.map(shot => (
+                      <img
+                        key={shot.src}
+                        src={import.meta.env.BASE_URL + shot.src}
+                        alt={shot.alt}
+                        loading="lazy"
+                        className="w-24 shrink-0 snap-start rounded-lg border border-border-dim"
+                      />
+                    ))}
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {project.tags.slice(1).map(tag => (
                     <span key={tag} className="px-2 py-0.5 text-xs text-text-muted bg-surface-secondary rounded-md border border-border-dim">
@@ -61,31 +75,30 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="flex items-center gap-3 pt-3 border-t border-border-dim">
-                  {project.repo && (
-                    <a
-                      href={project.repo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
-                    >
-                      <GithubIcon size={14} /> Source
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
-                    >
-                      <ExternalLink size={14} /> Live
-                    </a>
-                  )}
-                  {project.status && (
-                    <span className="text-xs text-text-muted">{project.status}</span>
-                  )}
-                </div>
+                {(project.repo || project.live) && (
+                  <div className="flex items-center gap-3 pt-3 border-t border-border-dim">
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
+                      >
+                        <GithubIcon size={14} /> Source
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-xs text-text-muted hover:text-text-primary transition-colors"
+                      >
+                        <ExternalLink size={14} /> Live
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             )
           })}
