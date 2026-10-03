@@ -66,7 +66,7 @@ export const stats = [
 
 export const experience = [
   {
-    role: 'Interim Manager / PD Scientist',
+    role: 'PD Scientist',
     company: 'Fred Hutchinson Cancer Research Center',
     location: 'Seattle, WA',
     period: '2020 - Present',

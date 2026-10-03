@@ -4,7 +4,7 @@ import { GithubIcon, LinkedinIcon } from './Icons'
 import { stats } from '../data'
 
 const now = [
-  { label: 'Currently', value: 'Interim Manager & PD Scientist', sub: 'Fred Hutch, Seattle' },
+  { label: 'Currently', value: 'PD Scientist', sub: 'Fred Hutch, Seattle' },
   { label: 'Latest build', value: 'Birdy: Dream Life', sub: 'iOS app · React Native' },
   { label: 'Recent work', value: 'FOLR1 CAR T, Phase I', sub: 'Blood, 2025 · poster abstract' },
 ]
