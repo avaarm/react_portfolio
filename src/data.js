@@ -16,11 +16,11 @@ export const navLinks = [
 export const projects = [
   {
     title: 'SmartSOP',
-    description: 'AI-powered document generation tool for Standard Operating Procedures and Batch Records. Uses a fine-tunable phi-2 model to generate professionally formatted documents for biotech manufacturing.',
-    tags: ['Angular', 'Python', 'AI/ML', 'phi-2'],
+    description: 'GMP document builder for SOPs, batch records, validation protocols, and deviation forms. AI fills in each section, pulls methods from published papers, and exports formatted Word documents.',
+    tags: ['Angular', 'Flask', 'AI/ML', 'Ollama'],
     color: 'accent',
     repo: 'https://github.com/avaarm/smartsop',
-    live: null,
+    live: 'https://avaarm.github.io/smartsop/',
   },
   {
     title: 'SmartCloset',
@@ -47,12 +47,13 @@ export const projects = [
     live: null,
   },
   {
-    title: 'Dream Life App',
-    description: 'Mobile self-development app featuring guided journaling, categorized affirmations, 30-day habit tracking, meditation timer, and progress visualization.',
-    tags: ['React Native', 'Expo', 'TypeScript'],
+    title: 'Dream Life',
+    description: 'iOS app for self-development built around a 3-step program: rewrite your old story, set a new vision, and build your self-concept. Includes guided journaling, affirmations, a 30-day morning routine tracker, mirror work, and a meditation timer.',
+    tags: ['React Native', 'Expo', 'TypeScript', 'iOS'],
     color: 'amber',
-    repo: 'https://github.com/avaarm/birdy',
+    repo: null,
     live: null,
+    status: 'App Store · coming soon',
   },
   {
     title: 'Navak Academy',

@@ -82,6 +82,9 @@ export default function Projects() {
                       <ExternalLink size={14} /> Live
                     </a>
                   )}
+                  {project.status && (
+                    <span className="text-xs text-text-muted">{project.status}</span>
+                  )}
                 </div>
               </motion.div>
             )
