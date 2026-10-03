@@ -1,71 +1,50 @@
-import { motion } from 'framer-motion'
-import { useInView } from './useInView'
-import { Mail, MapPin } from 'lucide-react'
+import { ArrowUpRight, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './Icons'
+import { Reveal } from './Section'
+
+const links = [
+  { icon: LinkedinIcon, label: 'LinkedIn', value: 'armenuhi-avanesyan', href: 'https://linkedin.com/in/armenuhi-avanesyan' },
+  { icon: GithubIcon, label: 'GitHub', value: 'avaarm', href: 'https://github.com/avaarm' },
+]
 
 export default function Contact() {
-  const [ref, inView] = useInView()
-
   return (
-    <section id="contact" className="py-24 px-6" ref={ref}>
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-sm font-medium text-accent uppercase tracking-widest mb-3">Contact</h2>
-          <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Let's connect
-          </h3>
-          <p className="text-text-secondary mb-10 max-w-lg mx-auto">
-            Interested in collaborating on biotech software, cell therapy innovation,
-            or just want to chat? I'd love to hear from you.
+    <section id="contact" className="relative px-5 sm:px-8 py-24 md:py-32 border-t border-line overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-70 pointer-events-none" aria-hidden="true" />
+      <div className="relative max-w-6xl mx-auto">
+        <Reveal>
+          <p className="font-mono text-xs text-ink-muted tracking-wider mb-6">
+            <span className="text-accent">06</span> / Contact
           </p>
-        </motion.div>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.03em] leading-[1.05] text-ink max-w-4xl">
+            Working on cell therapy, biotech software, or both? Let's talk.
+          </h2>
+        </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="grid sm:grid-cols-2 gap-4 max-w-md mx-auto mb-10"
-        >
-          {[
-            { icon: Mail, label: 'Email', value: 'avaarm95@gmail.com', href: 'mailto:avaarm95@gmail.com' },
-            { icon: MapPin, label: 'Location', value: 'Seattle, WA', href: null },
-            { icon: GithubIcon, label: 'GitHub', value: 'avaarm', href: 'https://github.com/avaarm' },
-            { icon: LinkedinIcon, label: 'LinkedIn', value: 'armenuhi-avanesyan', href: 'https://linkedin.com/in/armenuhi-avanesyan' },
-          ].map(({ icon: Icon, label, value, href }) => {
-            const Wrapper = href ? 'a' : 'div'
-            const linkProps = href
-              ? { href, target: href.startsWith('http') ? '_blank' : undefined, rel: href.startsWith('http') ? 'noopener noreferrer' : undefined }
-              : {}
-            return (
-              <Wrapper
+        <Reveal delay={0.1} className="mt-12 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+          <a
+            href="mailto:avaarm95@gmail.com"
+            className="group inline-flex items-center gap-3 px-6 py-4 rounded-xl bg-ink text-surface font-medium hover:bg-white transition-colors w-fit"
+          >
+            <Mail size={18} />
+            avaarm95@gmail.com
+            <ArrowUpRight size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+          <div className="flex flex-wrap gap-6">
+            {links.map(({ icon: Icon, label, value, href }) => (
+              <a
                 key={label}
-                {...linkProps}
-                className="flex items-center gap-3 p-4 rounded-xl border border-border-dim bg-surface-card backdrop-blur-sm hover:border-border-bright transition-colors text-left"
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 text-ink-soft hover:text-ink transition-colors"
               >
-                <Icon size={18} className="text-accent shrink-0" />
-                <div>
-                  <p className="text-xs text-text-muted">{label}</p>
-                  <p className="text-sm text-text-primary font-medium">{value}</p>
-                </div>
-              </Wrapper>
-            )
-          })}
-        </motion.div>
-
-        <motion.a
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          href="mailto:avaarm95@gmail.com"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-accent/10 border border-accent/20 text-accent rounded-xl text-sm font-medium hover:bg-accent/20 transition-all"
-        >
-          <Mail size={16} />
-          Send me a message
-        </motion.a>
+                <Icon size={18} />
+                <span className="text-sm">{value}</span>
+              </a>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   )

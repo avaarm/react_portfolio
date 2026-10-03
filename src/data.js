@@ -15,42 +15,11 @@ export const navLinks = [
 
 export const projects = [
   {
-    title: 'SmartSOP',
-    description: 'GMP document builder for SOPs, batch records, validation protocols, and deviation forms. AI fills in each section, pulls methods from published papers, and exports formatted Word documents.',
-    tags: ['Angular', 'Flask', 'AI/ML', 'Ollama'],
-    color: 'accent',
-    repo: 'https://github.com/avaarm/smartsop',
-    live: 'https://avaarm.github.io/smartsop/',
-  },
-  {
-    title: 'SmartCloset',
-    description: 'Mobile wardrobe management app with outfit suggestions, wear tracking, cost-per-wear analytics, and wishlist management. Built for mindful fashion choices.',
-    tags: ['React Native', 'TypeScript', 'Mobile', 'Analytics'],
-    color: 'rose',
-    repo: 'https://github.com/avaarm/smartcloset',
-    live: null,
-  },
-  {
-    title: 'AI Sequence Builder',
-    description: 'DNA/protein sequence optimization platform leveraging DNABERT for intelligent sequence design. Optimizes codon usage, GC content, expression levels, and stability.',
-    tags: ['Python', 'Streamlit', 'DNABERT', 'ML'],
-    color: 'green',
-    repo: 'https://github.com/avaarm/seqhelper',
-    live: null,
-  },
-  {
-    title: 'ETRA Consulting',
-    description: 'Full-stack biotech consulting platform with project management, FDA guidelines integration, Auth0 authentication, and client engagement portal.',
-    tags: ['React', 'Node.js', 'Auth0', 'MongoDB'],
-    color: 'blue',
-    repo: 'https://github.com/avaarm/etraversion2.1',
-    live: null,
-  },
-  {
     title: 'Birdy: Dream Life',
-    description: 'iOS app for a calm 30-day self-development practice: affirmations with mirror work, journaling, guided meditation, mood tracking, and Luna, an AI companion. Each practice notes the psychology research behind it.',
+    kind: 'iOS app',
+    featured: true,
+    description: 'A calm 30-day self-development practice: affirmations with mirror work, journaling, guided meditation, mood tracking, and Luna, an AI companion. Each practice notes the psychology research behind it.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'Claude API'],
-    color: 'amber',
     repo: null,
     live: null,
     screenshots: [
@@ -63,13 +32,36 @@ export const projects = [
     ],
   },
   {
-    title: 'Navak Academy',
-    description: 'Web platform for Navak Academy, a program teaching coding skills to young Armenian women from underserved backgrounds. Built to increase access to tech education.',
-    tags: ['React', 'JavaScript', 'Education'],
-    color: 'accent',
-    repo: 'https://github.com/avaarm/navak-academy',
-    live: 'https://navakacademy.com',
+    title: 'SmartSOP',
+    kind: 'Web app',
+    description: 'GMP document builder for SOPs, batch records, validation protocols, and deviation forms. AI fills in each section, pulls methods from published papers, and exports formatted Word documents.',
+    tags: ['Angular', 'Flask', 'Ollama', 'python-docx'],
+    repo: 'https://github.com/avaarm/smartsop',
+    live: 'https://avaarm.github.io/smartsop/',
   },
+  {
+    title: 'SmartCloset',
+    kind: 'Mobile app',
+    description: 'Wardrobe manager with outfit suggestions, wear tracking, cost-per-wear analytics, and a wishlist.',
+    tags: ['React Native', 'TypeScript', 'Analytics'],
+    repo: 'https://github.com/avaarm/smartcloset',
+    live: null,
+  },
+  {
+    title: 'ETRA Consulting',
+    kind: 'Web platform',
+    description: 'Biotech consulting platform with project management, FDA guidance lookup, Auth0 sign-in, and a client portal.',
+    tags: ['React', 'Node.js', 'Auth0', 'MongoDB'],
+    repo: 'https://github.com/avaarm/etraversion2.1',
+    live: null,
+  },
+]
+
+export const stats = [
+  { value: '10+', label: 'years in cell therapy' },
+  { value: '15+', label: 'IND-enabling programs' },
+  { value: '$3.4M', label: 'innovation grants secured' },
+  { value: '40%', label: 'ops cost cut through automation' },
 ]
 
 export const experience = [
@@ -120,9 +112,9 @@ export const experience = [
 ]
 
 export const techSkills = [
-  { category: 'Frontend', icon: Globe, items: ['React', 'Angular', 'React Native', 'TypeScript', 'Tailwind CSS', 'HTML/CSS', 'Expo'] },
-  { category: 'Backend', icon: Database, items: ['Python', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'Flask', 'REST APIs'] },
-  { category: 'AI / ML', icon: Brain, items: ['DNABERT', 'phi-2', 'LLM Fine-tuning', 'Streamlit', 'n8n', 'Power Automate'] },
+  { category: 'Frontend', icon: Globe, items: ['React', 'Angular', 'React Native', 'Expo', 'TypeScript', 'Tailwind CSS'] },
+  { category: 'Backend', icon: Database, items: ['Python', 'Flask', 'Node.js', 'Express', 'Supabase', 'MongoDB', 'MySQL'] },
+  { category: 'AI / ML', icon: Brain, items: ['Claude API', 'Ollama', 'DNABERT', 'phi-2', 'LLM Fine-tuning', 'n8n', 'Power Automate'] },
   { category: 'DevOps & Tools', icon: GitBranch, items: ['Git', 'GitHub Actions', 'Vite', 'Docker', 'Heroku', 'Figma', 'Jira'] },
 ]
 

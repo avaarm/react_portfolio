@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../data'
 
@@ -8,34 +8,31 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'bg-surface/80 backdrop-blur-xl border-b border-border-dim'
-            : 'bg-transparent'
+      <nav
+        className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+          scrolled || mobileOpen ? 'bg-surface/85 backdrop-blur-xl border-b border-line' : 'border-b border-transparent'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#" className="text-lg font-semibold text-text-primary tracking-tight">
-            A<span className="text-accent">.</span>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+          <a href="#top" className="flex items-center gap-2.5 text-ink">
+            <span className="grid place-items-center w-7 h-7 rounded-md border border-line-strong font-mono text-xs text-accent">AA</span>
+            <span className="font-display font-semibold tracking-tight">Armenuhi Avanesyan</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map(link => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors rounded-lg hover:bg-surface-hover"
+                className="text-sm text-ink-soft hover:text-ink transition-colors"
               >
                 {link.label}
               </a>
@@ -44,28 +41,30 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
+            className="md:hidden p-2 -mr-2 text-ink-soft hover:text-ink transition-colors"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-0 z-40 bg-surface/95 backdrop-blur-xl pt-20 px-6 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-surface/95 backdrop-blur-xl pt-20 px-5 md:hidden"
           >
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col">
               {navLinks.map(link => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-lg text-text-secondary hover:text-text-primary transition-colors rounded-xl hover:bg-surface-hover"
+                  className="py-4 border-b border-line font-display text-2xl text-ink"
                 >
                   {link.label}
                 </a>

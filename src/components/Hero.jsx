@@ -1,126 +1,116 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Mail } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './Icons'
+import { stats } from '../data'
+
+const now = [
+  { label: 'Currently', value: 'Interim Manager & PD Scientist', sub: 'Fred Hutch, Seattle' },
+  { label: 'Latest build', value: 'Birdy: Dream Life', sub: 'iOS app · React Native' },
+  { label: 'Recent work', value: 'FOLR1 CAR T, Phase I', sub: 'Blood, 2025 · poster abstract' },
+]
+
+const socials = [
+  { icon: GithubIcon, href: 'https://github.com/avaarm', label: 'GitHub' },
+  { icon: LinkedinIcon, href: 'https://linkedin.com/in/armenuhi-avanesyan', label: 'LinkedIn' },
+  { icon: Mail, href: 'mailto:avaarm95@gmail.com', label: 'Email' },
+]
+
+const fade = (delay) => ({
+  initial: { opacity: 0, y: 16 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: 'easeOut' },
+})
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Gradient orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[100px]" />
-      </div>
-
-      {/* Grid pattern */}
+    <section id="top" className="relative px-5 sm:px-8 pt-32 md:pt-40 pb-16 md:pb-20 overflow-hidden">
+      <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true" />
       <div
-        className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
+        className="absolute -top-40 left-1/4 w-[640px] h-[640px] rounded-full bg-accent/[0.06] blur-[120px] pointer-events-none"
+        aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border-dim bg-surface-card backdrop-blur-sm mb-8">
-            <span className="w-2 h-2 rounded-full bg-green animate-pulse" />
-            <span className="text-sm text-text-secondary">Open to opportunities</span>
-          </div>
-        </motion.div>
+      <div className="relative max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-end">
+          <div>
+            <motion.p {...fade(0)} className="font-mono text-xs text-ink-muted tracking-wider mb-6 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+              Seattle, WA · Open to new roles
+            </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6"
-        >
-          Armenuhi{' '}
-          <span className="bg-gradient-to-r from-accent via-blue to-green bg-clip-text text-transparent">
-            Avanesyan
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-4 leading-relaxed"
-        >
-          Cell therapy scientist & full-stack developer bridging
-          <span className="text-text-primary font-medium"> biotech manufacturing </span>
-          and
-          <span className="text-text-primary font-medium"> modern software</span>.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm text-text-muted mb-10"
-        >
-          10+ years in cell therapy PD &middot; Full-stack engineering &middot; AI/ML applications in biotech
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex items-center justify-center gap-4"
-        >
-          <a
-            href="#projects"
-            className="px-6 py-2.5 bg-accent/10 border border-accent/20 text-accent rounded-xl text-sm font-medium hover:bg-accent/20 transition-all"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-2.5 bg-surface-card border border-border-dim text-text-secondary rounded-xl text-sm font-medium hover:text-text-primary hover:border-border-bright transition-all"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex items-center justify-center gap-3 mt-10"
-        >
-          {[
-            { icon: GithubIcon, href: 'https://github.com/avaarm', label: 'GitHub' },
-            { icon: Mail, href: 'mailto:avaarm95@gmail.com', label: 'Email', isLucide: true },
-            { icon: LinkedinIcon, href: 'https://linkedin.com/in/armenuhi-avanesyan', label: 'LinkedIn' },
-          ].map(({ icon: Icon, href, label, isLucide }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="p-2.5 rounded-xl border border-border-dim bg-surface-card text-text-muted hover:text-text-primary hover:border-border-bright transition-all"
-              aria-label={label}
+            <motion.h1
+              {...fade(0.08)}
+              className="font-display text-[2.75rem] leading-[1.02] sm:text-6xl md:text-7xl font-semibold tracking-[-0.03em] text-ink"
             >
-              {isLucide ? <Icon size={18} /> : <Icon size={18} />}
-            </a>
-          ))}
-        </motion.div>
-      </div>
+              Cell therapy scientist.
+              <br />
+              <span className="text-ink-muted">Software builder.</span>
+            </motion.h1>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <a href="#about" className="text-text-muted hover:text-text-secondary transition-colors">
-          <ArrowDown size={20} className="animate-bounce" />
-        </a>
-      </motion.div>
+            <motion.p {...fade(0.16)} className="mt-7 text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed">
+              I lead process development for CAR-T, TCR, and NK cell therapies, and I build the
+              software that makes manufacturing easier to run: automation, GMP document tools,
+              and mobile apps.
+            </motion.p>
+
+            <motion.div {...fade(0.24)} className="mt-9 flex flex-wrap items-center gap-3">
+              <a
+                href="#projects"
+                className="group inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-ink text-surface text-sm font-medium hover:bg-white transition-colors"
+              >
+                See my work
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center px-5 py-3 rounded-lg border border-line-strong text-sm font-medium text-ink hover:bg-surface-hover transition-colors"
+              >
+                Get in touch
+              </a>
+              <div className="flex items-center gap-1 ml-1">
+                {socials.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    aria-label={label}
+                    className="p-2.5 rounded-lg text-ink-muted hover:text-ink hover:bg-surface-hover transition-colors"
+                  >
+                    <Icon size={18} />
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <motion.aside {...fade(0.32)} className="rounded-xl border border-line bg-surface-raised/80 backdrop-blur-sm">
+            {now.map((item, i) => (
+              <div key={item.label} className={`px-5 py-4 ${i > 0 ? 'border-t border-line' : ''}`}>
+                <p className="font-mono text-[11px] uppercase tracking-wider text-ink-muted mb-1.5">{item.label}</p>
+                <p className="text-sm font-medium text-ink">{item.value}</p>
+                <p className="text-xs text-ink-muted mt-0.5">{item.sub}</p>
+              </div>
+            ))}
+          </motion.aside>
+        </div>
+
+        <motion.dl
+          {...fade(0.4)}
+          className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 border-t border-line"
+        >
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              className={`pt-6 pb-2 pr-4 ${i % 2 === 1 ? 'pl-4 md:pl-6 border-l border-line' : ''} ${i === 2 ? 'md:pl-6 md:border-l md:border-line' : ''}`}
+            >
+              <dt className="sr-only">{s.label}</dt>
+              <dd className="font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink">{s.value}</dd>
+              <dd className="mt-1 text-sm text-ink-muted">{s.label}</dd>
+            </div>
+          ))}
+        </motion.dl>
+      </div>
     </section>
   )
 }
