@@ -16,11 +16,11 @@ export const navLinks = [
 export const projects = [
   {
     title: 'SmartSOP',
-    description: 'AI-powered document generation tool for Standard Operating Procedures and Batch Records. Uses a fine-tunable phi-2 model to generate professionally formatted documents for biotech manufacturing.',
-    tags: ['Angular', 'Python', 'AI/ML', 'phi-2'],
+    description: 'GMP document builder for SOPs, batch records, validation protocols, and deviation forms. AI fills in each section, pulls methods from published papers, and exports formatted Word documents.',
+    tags: ['Angular', 'Flask', 'AI/ML', 'Ollama'],
     color: 'accent',
     repo: 'https://github.com/avaarm/smartsop',
-    live: null,
+    live: 'https://avaarm.github.io/smartsop/',
   },
   {
     title: 'SmartCloset',
@@ -47,12 +47,20 @@ export const projects = [
     live: null,
   },
   {
-    title: 'Dream Life App',
-    description: 'Mobile self-development app featuring guided journaling, categorized affirmations, 30-day habit tracking, meditation timer, and progress visualization.',
-    tags: ['React Native', 'Expo', 'TypeScript'],
+    title: 'Birdy: Dream Life',
+    description: 'iOS app for a calm 30-day self-development practice: affirmations with mirror work, journaling, guided meditation, mood tracking, and Luna, an AI companion. Each practice notes the psychology research behind it.',
+    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'Claude API'],
     color: 'amber',
-    repo: 'https://github.com/avaarm/birdy',
+    repo: null,
     live: null,
+    screenshots: [
+      { src: 'projects/birdy/01-home.webp', alt: 'Home screen with today\'s lesson and mood check-in' },
+      { src: 'projects/birdy/02-daily-ritual.webp', alt: 'Daily ritual' },
+      { src: 'projects/birdy/03-mood-calendar.webp', alt: 'Mood calendar' },
+      { src: 'projects/birdy/04-meditation.webp', alt: 'Meditation options' },
+      { src: 'projects/birdy/05-meditation-timer.webp', alt: 'Meditation timer' },
+      { src: 'projects/birdy/06-luna-chat.webp', alt: 'Chat with Luna' },
+    ],
   },
   {
     title: 'Navak Academy',
