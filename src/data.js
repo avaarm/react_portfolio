@@ -23,8 +23,6 @@ export const projects = [
     repo: null,
     live: null,
     screenshots: [
-      { src: 'projects/birdy/01-home.webp', alt: 'Home screen with today\'s lesson and mood check-in' },
-      { src: 'projects/birdy/02-daily-ritual.webp', alt: 'Daily ritual' },
       { src: 'projects/birdy/03-mood-calendar.webp', alt: 'Mood calendar' },
       { src: 'projects/birdy/04-meditation.webp', alt: 'Meditation options' },
       { src: 'projects/birdy/05-meditation-timer.webp', alt: 'Meditation timer' },
