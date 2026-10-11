@@ -39,36 +39,71 @@ function Tags({ tags }) {
   )
 }
 
-function Featured({ project }) {
+function Shots({ project }) {
+  const phone = project.device === 'phone'
+  return (
+    <div className="relative min-w-0 bg-surface">
+      <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" aria-hidden="true" />
+      <div className="relative flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 sm:px-8 py-8 md:py-10 [scrollbar-width:thin]">
+        {project.screenshots.map(shot => (
+          <img
+            key={shot.src}
+            src={import.meta.env.BASE_URL + shot.src}
+            alt={shot.alt}
+            loading="lazy"
+            width={phone ? 480 : 1200}
+            height={phone ? 1043 : 750}
+            className={
+              phone
+                ? 'w-36 sm:w-40 md:w-44 h-auto shrink-0 snap-start rounded-[1.25rem] border border-line-strong shadow-2xl shadow-black/50'
+                : 'w-[85%] sm:w-[520px] md:w-[640px] h-auto shrink-0 snap-start rounded-lg border border-line-strong shadow-2xl shadow-black/50'
+            }
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function Showcase({ project }) {
+  if (project.device === 'phone') {
+    return (
+      <Reveal className="rounded-2xl border border-line bg-surface-raised overflow-hidden">
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)]">
+          <div className="p-6 sm:p-8 md:p-10 flex flex-col">
+            <p className="font-mono text-xs text-accent tracking-wider">{project.kind}</p>
+            <h3 className="mt-3 font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink">
+              {project.title}
+            </h3>
+            <p className="mt-4 text-ink-soft leading-relaxed">{project.description}</p>
+            <Tags tags={project.tags} />
+            <Links project={project} />
+          </div>
+          <div className="min-w-0 border-t lg:border-t-0 lg:border-l border-line">
+            <Shots project={project} />
+          </div>
+        </div>
+      </Reveal>
+    )
+  }
+
   return (
     <Reveal className="rounded-2xl border border-line bg-surface-raised overflow-hidden">
-      <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)]">
-        <div className="p-6 sm:p-8 md:p-10 flex flex-col">
-          <p className="font-mono text-xs text-accent tracking-wider">Featured · {project.kind}</p>
+      <div className="p-6 sm:p-8 md:p-10 grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-6 lg:gap-12">
+        <div>
+          <p className="font-mono text-xs text-accent tracking-wider">{project.kind}</p>
           <h3 className="mt-3 font-display text-3xl md:text-4xl font-semibold tracking-tight text-ink">
             {project.title}
           </h3>
           <p className="mt-4 text-ink-soft leading-relaxed">{project.description}</p>
+        </div>
+        <div className="lg:pt-8">
           <Tags tags={project.tags} />
           <Links project={project} />
         </div>
-
-        <div className="relative min-w-0 border-t lg:border-t-0 lg:border-l border-line bg-surface">
-          <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" aria-hidden="true" />
-          <div className="relative flex gap-4 overflow-x-auto snap-x snap-mandatory px-6 sm:px-8 py-8 md:py-10 [scrollbar-width:thin]">
-            {project.screenshots.map(shot => (
-              <img
-                key={shot.src}
-                src={import.meta.env.BASE_URL + shot.src}
-                alt={shot.alt}
-                loading="lazy"
-                width="480"
-                height="1043"
-                className="w-36 sm:w-40 md:w-44 h-auto shrink-0 snap-start rounded-[1.25rem] border border-line-strong shadow-2xl shadow-black/50"
-              />
-            ))}
-          </div>
-        </div>
+      </div>
+      <div className="border-t border-line">
+        <Shots project={project} />
       </div>
     </Reveal>
   )
@@ -87,8 +122,8 @@ function Card({ project, delay }) {
 }
 
 export default function Projects() {
-  const featured = projects.filter(p => p.featured)
-  const rest = projects.filter(p => !p.featured)
+  const showcased = projects.filter(p => p.screenshots?.length)
+  const rest = projects.filter(p => !p.screenshots?.length)
 
   return (
     <Section
@@ -98,11 +133,13 @@ export default function Projects() {
       title="Things I've built."
       intro="Apps and tools that sit between biotech operations and everyday software."
     >
-      <div className="space-y-5">
-        {featured.map(p => <Featured key={p.title} project={p} />)}
-        <div className="grid md:grid-cols-3 gap-5">
-          {rest.map((p, i) => <Card key={p.title} project={p} delay={i * 0.06} />)}
-        </div>
+      <div className="space-y-6">
+        {showcased.map(p => <Showcase key={p.title} project={p} />)}
+        {rest.length > 0 && (
+          <div className="grid md:grid-cols-2 gap-6">
+            {rest.map((p, i) => <Card key={p.title} project={p} delay={i * 0.06} />)}
+          </div>
+        )}
       </div>
     </Section>
   )
