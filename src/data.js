@@ -1,5 +1,5 @@
 import {
-  FlaskConical, Brain, Dna, Microscope,
+  FlaskConical, Brain, Dna, Microscope, Factory,
   Database, Globe, GitBranch,
   FileText, Users
 } from 'lucide-react'
@@ -56,96 +56,139 @@ export const projects = [
 ]
 
 export const stats = [
-  { value: '10+', label: 'years in cell therapy' },
-  { value: '15+', label: 'IND-enabling programs' },
-  { value: '$3.4M', label: 'innovation grants secured' },
-  { value: '40%', label: 'ops cost cut through automation' },
+  { value: '10+', label: 'years in cell and gene therapy' },
+  { value: '15', label: 'IND submissions authored' },
+  { value: '$3.4M', label: 'innovation funding secured' },
+  { value: '15+', label: 'person cross-functional team' },
 ]
 
 export const experience = [
   {
     role: 'PD Scientist',
-    company: 'Fred Hutchinson Cancer Research Center',
+    company: 'Fred Hutchinson Cancer Center',
     location: 'Seattle, WA',
-    period: '2020 - Present',
+    period: 'Jan 2020 – Present',
     highlights: [
-      'Direct a portfolio of CAR-T, TCR, and B-cell client programs with multi-million-dollar budget oversight',
-      'Architected end-to-end automation solutions (WMS, Smartsheet, Power Automate) reducing operational costs by 40%',
-      'Secured $3.4M in competitive innovation grants for cell therapy manufacturing',
-      'Recruited and developed a cross-functional team of 15+ across PD, manufacturing, engineering, and QC',
-      'Led 15+ IND-enabling process characterization and technology transfer programs',
+      'Led development and IND submissions for 15 clinical trial products (CAR-T, TCR); authored CMC and analytical sections and drafted responses to FDA information requests',
+      'Direct autologous and allogeneic CAR-T, TCR, NK, B-cell, and large-scale HSC programs with multi-million-dollar budget oversight',
+      'Integrated Xuri, Cocoon, and Prodigy closed-system platforms; built 12+ color flow panels with FACS, cytokine, and cytotoxicity readouts',
+      'Built the internal automation stack (Power BI, SQL, Power Automate, n8n, Smartsheet, WMS) that modernized CDMO operations',
+      'Secured $3.4M in competitive innovation funding; recruited and mentored a team of 15+ across PD, MSAT, manufacturing, engineering, and QC',
     ],
   },
   {
-    role: 'Research Technician - Gene Therapy',
-    company: 'Poseida Therapeutics, Inc.',
+    role: 'Senior Teaching Assistant, Full-Stack Web Development',
+    company: 'University of Washington Professional & Continuing Education',
+    location: 'Remote',
+    period: 'Nov 2020 – Oct 2023',
+    highlights: [
+      'Taught JavaScript, React, Node.js, Express, MongoDB, and REST APIs to bootcamp cohorts over three years',
+      'Ran code reviews, office hours, and pair-programming sessions, and helped improve the curriculum',
+    ],
+  },
+  {
+    role: 'Research Technician, Gene Therapy',
+    company: 'Poseida Therapeutics',
     location: 'San Diego, CA',
-    period: '2016 - 2019',
+    period: 'Aug 2016 – Sep 2019',
     highlights: [
-      'Managed preclinical-to-clinical transitions for gene-modified cell therapies',
+      'Produced and sequenced lentiviral and piggyBac transposon vectors for gene-modified cell therapies',
+      'Drove comparative transduction and transfection studies for non-viral CAR-T and designed high-throughput screening assays',
       'Led AAV vector study renewal in collaboration with Stanford University',
-      'Designed high-throughput screening assays increasing development efficiency',
     ],
   },
   {
-    role: 'Research Intern - Immunology',
+    role: 'Research Intern, Immunology',
     company: 'The Scripps Research Institute',
     location: 'San Diego, CA',
-    period: '2015 - 2016',
+    period: 'Jun 2015 – Jun 2016',
     highlights: [
-      'Executed mouse IV injections, multipanel flow cytometry, and FACS sorting',
-      'Trained graduate students in PCR, sequencing, and flow cytometry',
+      'Ran in vivo mouse work, multi-parameter flow cytometry, and FACS sorting',
+      'Trained graduate students on PCR, sequencing, and flow cytometry',
     ],
   },
+]
+
+export const community = [
   {
-    role: 'Director',
-    company: 'Friends of Fronteras Saludables',
-    location: 'San Diego, CA',
-    period: '2018 - 2023',
-    highlights: [
-      'Secured targeted grants ($10K-$1M) to fund critical medical equipment',
-      'Directed strategic planning and end-to-end project execution for clinic sustainability',
-    ],
+    role: 'Founder',
+    org: 'Navak Academy',
+    period: '2022 – Present',
+    description: 'Consulting company serving the Armenian community. Projects include translating the Django Girls tutorial into Armenian and building a searchable directory of Armenian-owned businesses.',
+    link: 'https://navakacademy.com',
+  },
+  {
+    role: 'Director, Strategy & Operations',
+    org: 'Friends of Fronteras Saludables',
+    period: '2018 – 2023',
+    description: 'Directed a 501(c)(3) funding medical equipment and public-health programs across the US–Mexico border region; secured grants from $10K to $1M.',
+    link: null,
   },
 ]
 
 export const techSkills = [
-  { category: 'Frontend', icon: Globe, items: ['React', 'Angular', 'React Native', 'Expo', 'TypeScript', 'Tailwind CSS'] },
-  { category: 'Backend', icon: Database, items: ['Python', 'Flask', 'Node.js', 'Express', 'Supabase', 'MongoDB', 'MySQL'] },
-  { category: 'AI / ML', icon: Brain, items: ['Claude API', 'Ollama', 'DNABERT', 'phi-2', 'LLM Fine-tuning', 'n8n', 'Power Automate'] },
-  { category: 'DevOps & Tools', icon: GitBranch, items: ['Git', 'GitHub Actions', 'Vite', 'Docker', 'Heroku', 'Figma', 'Jira'] },
+  { category: 'Frontend', icon: Globe, items: ['React', 'React Native', 'Angular', 'Expo', 'TypeScript', 'Tailwind CSS'] },
+  { category: 'Backend', icon: Database, items: ['Python', 'Node.js', 'Express', 'Flask', 'Supabase', 'MongoDB', 'MySQL', 'REST APIs'] },
+  { category: 'AI / Data', icon: Brain, items: ['Claude API', 'Ollama', 'phi-2 fine-tuning', 'DNABERT', 'pandas', 'scikit-learn', 'SQL', 'Power BI'] },
+  { category: 'Tools', icon: GitBranch, items: ['Git', 'Docker', 'CI/CD', 'GitHub Actions', 'n8n', 'Power Automate'] },
 ]
 
 export const biotechSkills = [
-  { category: 'Cell Therapy', icon: FlaskConical, items: ['CAR-T / TCR / NK / B Cell', 'Autologous & Allogeneic', 'Process Development & MSAT', 'Technology Transfer', 'Scale-Up & Scale-Out'] },
-  { category: 'Gene Modification', icon: Dna, items: ['Lentiviral Vectors', 'CRISPR Cas9/Cas12a', 'Transposon Systems', 'Base Editing', 'Electroporation'] },
-  { category: 'Laboratory', icon: Microscope, items: ['Multi-panel Flow Cytometry', 'FACS Sorting', 'PCR & Sequencing', 'CFU Assays', 'Cell Culture (GMP)'] },
-  { category: 'Leadership', icon: Users, items: ['CDMO Program Management', 'IND Submissions', 'Budget Oversight ($M)', 'Team Building (15+)', 'GMP/FACT Audit Readiness'] },
+  { category: 'Cell Therapy', icon: FlaskConical, items: ['CAR-T / TCR / NK / B-cell', 'Large-scale HSC', 'Autologous & allogeneic', 'MSAT, PD, tech transfer', 'Comparability & validation'] },
+  { category: 'Gene Modification', icon: Dna, items: ['Lentiviral & AAV vectors', 'CRISPR Cas9/Cas12a', 'piggyBac transposon', 'Base editing', 'Electroporation (MaxCyte, GTx, Neon, Nucleofector)'] },
+  { category: 'Immunology', icon: Microscope, items: ['12+ color flow cytometry', 'FACS sorting', 'MSD / ELISA', 'Cytotoxicity assays', 'qPCR'] },
+  { category: 'Manufacturing', icon: Factory, items: ['Xuri', 'Cocoon', 'Prodigy', 'LOVO', 'Scale-up & scale-out'] },
+  { category: 'Regulatory', icon: FileText, items: ['IND submissions (15)', 'CMC & analytical sections', 'FDA information requests', 'ICH GCP', 'FACT & FDA audit readiness'] },
+  { category: 'Leadership', icon: Users, items: ['CDMO program management', '$M budgets', 'Team of 15+', 'Mentorship'] },
 ]
 
 export const publications = [
   {
-    title: 'High-Efficiency Cell Engineering Using Scalable Electroporation Platforms',
-    venue: 'BioFactorial, University of British Columbia (with MaxCyte)',
-    type: 'Seminar',
+    title: 'Sequential Development of a Non-Viral Gene Editing and Manufacturing Platform for Primary Human NK Cells',
+    venue: 'Binaytara National Summit on Hematologic Cancers, Oct 2026 · E. Donnall Thomas Symposium, Sep 2026',
+    type: 'Poster',
+    role: 'Co-First Author',
+  },
+  {
+    title: 'Manufacturing Optimization of TCR-Engineered T Cells Across Six Development Programs',
+    venue: 'ISCT Annual Meeting, Dublin, 2026',
+    type: 'Poster',
+    role: 'First Author',
+  },
+  {
+    title: 'Optimizing a Single-Vessel CAR-T Production Platform: G-Rex Activation & Transduction Reagent Optimization',
+    venue: 'Fred Hutch AMT Symposium, 2026',
+    type: 'Talk',
     role: 'Co-Author',
+  },
+  {
+    title: 'Evaluation of Prodigy for Automated, Closed-System T Cell Manufacturing',
+    venue: 'Fred Hutch AMT Symposium, 2025',
+    type: 'Talk',
+    role: 'Speaker, First Author',
   },
   {
     title: 'Phase I Study of FH FOLR1 CAR T for Pediatric Patients with FOLR1+/CBFA2T3::GLIS2+ Relapsed or Refractory AML',
     venue: 'Blood, Volume 146 (Supplement 1), 2025',
-    type: 'Poster Abstract',
+    type: 'Abstract',
     role: 'Co-Author',
   },
   {
     title: 'Efficient Cell Therapy Manufacturing: Comparative Analysis of LOVO Cell Processing System and Manual Centrifugation',
     venue: 'ISCT Regional Meeting, 2023',
-    type: 'Oral Abstract',
+    type: 'Oral',
     role: 'Co-Author',
   },
   {
     title: 'Non-Viral Engineered Human CAR-T Cells for Safe and Specific Stem Cell Transplant Conditioning',
-    venue: 'ASH Annual Meeting',
-    type: 'Oral Abstract',
+    venue: 'ASH Annual Meeting (oral) · ASGCT Annual Meeting, Chicago, 2018 (poster)',
+    type: 'Oral & Poster',
+    role: 'Co-Author',
+  },
+  {
+    title: 'High-Efficiency Cell Engineering Using Scalable Electroporation Platforms',
+    venue: 'BioFactorial, University of British Columbia (with MaxCyte)',
+    type: 'Seminar',
     role: 'Co-Author',
   },
 ]

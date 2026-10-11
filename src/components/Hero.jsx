@@ -4,9 +4,9 @@ import { GithubIcon, LinkedinIcon } from './Icons'
 import { stats } from '../data'
 
 const now = [
-  { label: 'Currently', value: 'PD Scientist', sub: 'Fred Hutch, Seattle' },
+  { label: 'Currently', value: 'PD Scientist', sub: 'Fred Hutchinson Cancer Center' },
   { label: 'Latest build', value: 'Birdy: Dream Life', sub: 'iOS app · React Native' },
-  { label: 'Recent work', value: 'FOLR1 CAR T, Phase I', sub: 'Blood, 2025 · poster abstract' },
+  { label: 'Latest research', value: 'Non-viral NK cell editing platform', sub: 'Binaytara Summit, Oct 2026 · co-first author' },
 ]
 
 const socials = [
@@ -48,7 +48,7 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p {...fade(0.16)} className="mt-7 text-lg md:text-xl text-ink-soft max-w-2xl leading-relaxed">
-              I lead process development for CAR-T, TCR, and NK cell therapies, and I build the
+              I take CAR-T, TCR, and NK cell therapies from bench through IND, and I build the
               software that makes manufacturing easier to run: automation, GMP document tools,
               and mobile apps.
             </motion.p>

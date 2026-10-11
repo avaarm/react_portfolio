@@ -2,9 +2,9 @@ import Section, { Reveal } from './Section'
 
 const facts = [
   { label: 'Based in', value: 'Seattle, WA' },
-  { label: 'Education', value: 'B.S. Microbiology, UC San Diego' },
-  { label: 'Focus', value: 'Cell therapy PD, MSAT, tech transfer' },
-  { label: 'Modalities', value: 'CAR-T, TCR, NK, B cell' },
+  { label: 'Education', value: 'B.S. Microbiology & Immunology, UC San Diego' },
+  { label: 'Focus', value: 'PD, MSAT, tech transfer, IND/CMC' },
+  { label: 'Modalities', value: 'CAR-T, TCR, NK, B-cell, HSC' },
   { label: 'Builds with', value: 'React, React Native, Python, LLMs' },
 ]
 
@@ -16,18 +16,20 @@ export default function About() {
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16">
           <Reveal className="space-y-5 text-ink-soft leading-relaxed text-[1.0625rem]">
             <p>
-              I'm a cell therapy manufacturing leader with 10+ years in process development, MSAT,
-              and client program management across autologous and allogeneic CAR-T, TCR, NK, and
-              B cell programs.
+              I've spent 10+ years moving cell and gene therapies from bench to clinic, across
+              autologous and allogeneic CAR-T, TCR, NK, B-cell, and large-scale HSC programs. I've
+              authored 15 IND submissions, including CMC sections and responses to FDA information
+              requests.
             </p>
             <p>
-              I started programming to teach: helping students in Armenia get access to computer
-              science they couldn't get otherwise. That grew into building AI-powered tools for my
-              own field, where biotech and software meet.
+              I started programming to teach. I spent three years as a senior TA in the University
+              of Washington's full-stack bootcamp, and I founded Navak Academy, which translated the
+              Django Girls tutorial into Armenian. That grew into building tools for my own field.
             </p>
             <p>
-              Today I design automation that streamlines manufacturing workflows, build AI-assisted
-              GMP document tools, and ship mobile apps on the side.
+              Today I build automation that gives manufacturing leadership real-time visibility,
+              AI-assisted GMP document tools, and mobile apps. Most of my work is translating
+              between scientists, regulators, and engineers.
             </p>
           </Reveal>
 
