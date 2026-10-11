@@ -15,21 +15,6 @@ export const navLinks = [
 
 export const projects = [
   {
-    title: 'Birdy: Dream Life',
-    kind: 'iOS app',
-    device: 'phone',
-    description: 'A calm 30-day self-development practice: affirmations with mirror work, journaling, guided meditation, mood tracking, and Luna, an AI companion. Each practice notes the psychology research behind it.',
-    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'Claude API'],
-    repo: null,
-    live: null,
-    screenshots: [
-      { src: 'projects/birdy/03-mood-calendar.webp', alt: 'Mood calendar' },
-      { src: 'projects/birdy/04-meditation.webp', alt: 'Meditation options' },
-      { src: 'projects/birdy/05-meditation-timer.webp', alt: 'Meditation timer' },
-      { src: 'projects/birdy/06-luna-chat.webp', alt: 'Chat with Luna' },
-    ],
-  },
-  {
     title: 'LabBench',
     kind: 'Electronic lab notebook',
     device: 'desktop',
@@ -59,6 +44,21 @@ export const projects = [
       { src: 'projects/smartsop/04-run-record.webp', alt: 'Protocol run record with step outcomes' },
       { src: 'projects/smartsop/02-templates.webp', alt: 'Regulatory protocol templates' },
       { src: 'projects/smartsop/03-protocol-editor.webp', alt: 'Protocol editor with safety blocks' },
+    ],
+  },
+  {
+    title: 'Birdy: Dream Life',
+    kind: 'iOS app',
+    device: 'phone',
+    description: 'A calm 30-day self-development practice: affirmations with mirror work, journaling, guided meditation, mood tracking, and Luna, an AI companion. Each practice notes the psychology research behind it.',
+    tags: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'Claude API'],
+    repo: null,
+    live: null,
+    screenshots: [
+      { src: 'projects/birdy/03-mood-calendar.webp', alt: 'Mood calendar' },
+      { src: 'projects/birdy/04-meditation.webp', alt: 'Meditation options' },
+      { src: 'projects/birdy/05-meditation-timer.webp', alt: 'Meditation timer' },
+      { src: 'projects/birdy/06-luna-chat.webp', alt: 'Chat with Luna' },
     ],
   },
   {
